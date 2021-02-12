@@ -63,14 +63,23 @@
 
 <body>
     <ul id="messages"></ul>
-    <form id="form" action="">
+    <!-- <form id="form" action="">
         <input id="input" autocomplete="off" /><button>Send</button>
+    </form> -->
+
+
+
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="files" class="btn btn-primary" id="file" multiple>
+        <button class="btn btn-primary" type="submit" style="border-radius: 4px;">
+            Upload
+        </button>
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
     <!-- <script src="/js/socket_custom.js"></script> -->
     <script>
-        var socket = io(window.location.origin,{query:'loggeduser=user1'});
+        var socket = io(window.location.origin, { query: 'loggeduser=user1' });
 
         var form = document.getElementById('form');
         var input = document.getElementById('input');
